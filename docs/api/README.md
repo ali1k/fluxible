@@ -2,9 +2,9 @@
 
 var Fluxible = require('fluxible') exports the following:
 
- * [`Fluxible`](https://github.com/yahoo/fluxible/blob/master/docs/api/Fluxible.md)
- * [`Fluxible.FluxibleComponent`](https://github.com/yahoo/fluxible/blob/master/docs/api/FluxibleComponent.md)
- * [`Fluxible.FluxibleMixin`](https://github.com/yahoo/fluxible/blob/master/docs/api/FluxibleMixin.md)
+ * [`Fluxible`](Fluxible.md)
+ * [`Fluxible.FluxibleComponent`](/FluxibleComponent.md)
+ * [`Fluxible.FluxibleMixin`](FluxibleMixin.md)
 
 
 or if you're using ES6:
@@ -17,8 +17,8 @@ import {Fluxible, FluxibleComponent, FluxibleMixin} from 'fluxible';
 
 `var FluxibleAddons = require('fluxible/addons')` also provides helper utilities for creating stores:
 
- * [`FluxibleAddons.BaseStore`](https://github.com/yahoo/fluxible/blob/master/docs/api/Stores.md#BaseStore)
- * [`FluxibleAddons.createStore`](https://github.com/yahoo/fluxible/blob/master/docs/api/Stores.md#createStore)
+ * [`FluxibleAddons.BaseStore`](Stores.md#BaseStore)
+ * [`FluxibleAddons.createStore`](Stores.md#createStore)
 
  or if you're using ES6:
 
