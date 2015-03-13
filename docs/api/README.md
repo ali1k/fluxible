@@ -3,7 +3,7 @@
 var Fluxible = require('fluxible') exports the following:
 
  * [`Fluxible`](Fluxible.md)
- * [`Fluxible.FluxibleComponent`](/FluxibleComponent.md)
+ * [`Fluxible.FluxibleComponent`](FluxibleComponent.md)
  * [`Fluxible.FluxibleMixin`](FluxibleMixin.md)
 
 
