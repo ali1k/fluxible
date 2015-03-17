@@ -1,8 +1,8 @@
 # Actions
 
-Actions in Fluxible are simple functions that receive three parameters:
+Actions in Fluxible are stateless functions that receive three parameters:
 
- * [`actionContext`](ActionContext.md) - Provides access to Flux methods
+ * [`actionContext`](FluxibleContext.md#ActionContext) - Provides access to Flux methods
  * `payload` - The action payload
  * `done` - A function to be called when the action has been completed
 

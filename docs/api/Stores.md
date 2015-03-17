@@ -1,5 +1,7 @@
 # Stores
 
+Flux stores
+
 Stores in Fluxible are classes that adhere to a simple interface. Because we want stores to be able to be completely decoupled from Fluxible, we do not provide any store implementation in our default exports, however you can use the [utilities](#Helper Utilities) for creating your stores.
 
 ## Interface

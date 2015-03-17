@@ -10,22 +10,29 @@ Within a FluxibleContext, each component of your application receives a subset o
 
 Passed as first parameter to all action creators.
 
+ * `actionContext.executeAction(action, payload, done)`
+   * `action`: Another action function
+   * `payload`: the action payload
+   * `done`: the callback to call when the action has been completed
+
 ### Component Context
 
-Should be passed as prop to top level React component and then propagated to child components that require access to it.
+Passed as prop to top level React component and then propagated to child components that require access to it.
 
 ### Store Context
 
-Passed as first parameter to all store constructors.
+Passed as first parameter to all store constructors. By default has no
 
-## Constructor
+## Top Level API
+
+### Constructor
 
 Creates a new context instance with the following parameters:
 
  * `options`: An object containing the context settings
  * `options.app`: Provides access to the application level functions and settings
 
-## createElement(props)
+### createElement(props)
 
 Instantiates the app level React component (if provided in the constructor) with the given props with an additional `context` key containing a ComponentContext. This is the same as the following assuming Component is your top level React component:
 
@@ -35,7 +42,7 @@ Component({
 });
 ```
 
-## executeAction(action, payload, callback)
+### executeAction(action, payload, callback)
 
 This is the entry point into an application's execution. The initial action is what begins the flux flow: action dispatches events to stores and stores update their data structures. On the server, we wait for the initial action to finish and then we're ready to render using React. On the client, the components are already rendered and are waiting for store change events.
 
@@ -55,17 +62,17 @@ Parameters:
  });
  ```
 
-## plug(plugin)
+### plug(plugin)
 
 Allows custom context settings to be shared between server and client. Also allows dynamically plugging the ActionContext, ComponentContext, and StoreContext to provide additional methods.
 
-## getActionContext()
+### getActionContext()
 
 Generates an [ActionContext](ActionContext.md) providing access to only the functions that should be called from actions. By default: `dispatch`, `executeAction`, and `getStore`.
 
 This action context object is used every time an `executeAction` method is called and is passed as the first parameter to the action.
 
-## getComponentContext()
+### getComponentContext()
 
 Generates a [ComponentContext](ComponentContext.md) providing access to only the functions that should be called from components. By default: `executeAction`, `getStore`. `executeAction` does not allow passing a callback from components so that it enforces actions to be send and forget.
 
@@ -73,14 +80,14 @@ Generates a [ComponentContext](ComponentContext.md) providing access to only the
 
 This context interface should be passed in to your top level React component and then sent down to children as needed. These components will now have access to listen to store instances, execute actions, and access any methods added to the component context by plugins.
 
-## getStoreContext()
+### getStoreContext()
 
 Generates a [StoreContext](StoreContext.md) providing access to only the functions that should be called from stores. By default, this is empty, but it is modifiable by plugins.
 
-## dehydrate()
+### dehydrate()
 
 Returns a serializable object containing the state of the FluxibleContext and its Dispatchr instance. This is useful for serializing the state of the current context to send it to the client. This will also call any plugins whose plugContext method returns an object containing a dehydrate method.
 
-## rehydrate(state)
+### rehydrate(state)
 
 Takes an object representing the state of the FluxibleContext and Dispatchr instances (usually retrieved from dehydrate) to rehydrate them to the same state as they were on the server. This will also call any plugins whose plugContext method returns an object containing a rehydrate method.
