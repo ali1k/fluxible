@@ -55,6 +55,18 @@ context.getComponentContext().getFoo(); // returns 'bar'
 // or this.context.getFoo() from a React component
 ```
 
+In order to use your plugin within the component context, you have to assert it explicitly in the component definition:
+
+```js
+Application.contextTypes = {
+    getFoo: React.PropTypes.func
+};
+Application = provideContext(Application, { //jshint ignore:line
+    getFoo: React.PropTypes.func
+});
+```
+
+
 Example plugins:
  * [fluxible-plugin-fetchr](https://github.com/yahoo/fluxible-plugin-fetchr) - Polymorphic RESTful services
  * [fluxible-plugin-routr](https://github.com/yahoo/fluxible-plugin-routr) - Routing behavior
